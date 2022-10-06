@@ -29,6 +29,7 @@
         }
         .searchBtn {
             @include btn_style2;
+            cursor: pointer;
         }
         .btn {
             @include btn_style1;
@@ -36,7 +37,7 @@
         }
     }
 }
-.borad__table {
+.board__table {
     table {
         border-top: 2px solid $black;
         border-bottom: 2px solid $black;
@@ -57,7 +58,7 @@
     }
 
 }
-.borad__pages {
+.board__pages {
     margin: 40px 0;
     ul {
         text-align: center;

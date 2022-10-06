@@ -69,7 +69,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="borad__table">
+                <div class="board__table">
                     <table>
                         <colgroup>
                             <col style="width: 5%">
@@ -205,7 +205,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="borad__pages">
+                <div class="board__pages">
                     <ul>
                         <?php
                             $sql = "SELECT count(myBoardID) FROM myBoard";
