@@ -166,7 +166,7 @@
 
         function joinChecks(){
             // 개인정보 동의 체크
-            let joinCheck = $("#joinCheck").is(":checked");
+            let joinCheck = $("#joinCheck").is("checked");
 
             if(joinCheck == false){
                 alert("개인정보수집 및 동의를 체크해주세요");
