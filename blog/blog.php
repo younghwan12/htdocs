@@ -28,88 +28,43 @@
 
     <?php include "../include/header.php"?>
     <!-- header -->
-        <section id="banner">
-            <h2>블로그 소개입니다.</h2>
-            <div class="banner__inner container">
-                <div class="img">
-                    <img src="../assets/img/banner_bg01.jpg" alt="">
+        <section id="blogSearch" class="container">
+                <h2>개발과 관련된 블로그입니다.</h2>
+                <div class="blog__search">
+                    <form action="blogSearch.php">
+                        <legend>블로그 서치</legend>
+                        <label for="searchKeyword"></label>
+                        <input type="text" id="searchKeyword" name="searchKeyword" placeholder="검색어를 입력하세요!">
+                        <button class="btn">검색하기</button>
+                    </form>
                 </div>
-                <div class="desc">
-                    어떤 일이라도 <em>노력</em>하고 즐기면 그 결과는 <em>빛</em>을 바란다고 생각합니다.
-                    신입의 <em>열정</em>과 <em>도전정신</em>을 깊숙히 새기며 배움에 있어 <em>겸손함</em>을
-                    유지하며 세부적인 곳까지 파고드는 <em>개발자</em>가 되겠습니다.
-                </div>
-            </div>
         </section>
         <!-- //banner -->
 
         <section id="card" class="container">
-            <h2>javascript topic</h2>
+            <h2>topic</h2>
+            <a href="blogWrite.php" style="float:right; margin-top:20px">글쓰기</a>
             <div class="card__inner">
-                <div>
-                    <figure>
-                        <img src="../assets/img/card_bg01.jpg" alt="사진1">
-                        <a href="#" class="go" title="컨텐츠 바로보기"><svg width="10" height="10" viewBox="0 0 10 10"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z"
-                                    fill="white" />
-                            </svg>
-                        </a>
-                    </figure>
-                    <div>
-                        <h3>VScode에 scss는</h3>
-                        <p>먼저 확장 프로그램에서 scss는 설치합니다. sass와 scss는 같지만 쓰는 방법이 살짝 틀립니다.</p>
+                <?php
+                $sql = "SELECT * FROM myBlog WHERE blogDelete = 0 ORDER BY myBlogID DESC";
+                $result = $connect -> query($sql);
+
+                foreach($result as $blog){ ?>
+                    <div class="card">
+                        <figure>
+                            <img src="../assets/img/blog/<?=$blog['blogImgFile']?>" alt="사진4">
+                            <a href="blogView.php?blogID=<?=$blog['myBlogID']?>" class="go" title="컨텐츠 바로보기"></a>
+                            <span class="cate"><?=$blog['blogCategory']?></span>
+                        </figure>
+                        <div>
+                            <a href="blogView.php?blogID=<?=$blog['myBlogID']?>">
+                                <h3><?=$blog['blogTitle']?></h3>
+                                <p><?=$blog['blogContents']?></p>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <figure>
-                        <img src="../assets/img/card_bg02.jpg" alt="사진2">
-                        <a href="#" class="go" title="컨텐츠 바로보기"><svg width="10" height="10" viewBox="0 0 10 10"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z"
-                                    fill="white" />
-                            </svg>
-                        </a>
-                    </figure>
-                    <div>
-                        <h3>VScode에 scss는</h3>
-                        <p>먼저 확장 프로그램에서 scss는 설치합니다. sass와 scss는 같지만 쓰는 방법이 살짝 틀립니다.</p>
-                    </div>
-                </div>
-                <div>
-                    <figure>
-                        <img src="../assets/img/card_bg03.jpg" alt="사진3">
-                        <a href="#" class="go" title="컨텐츠 바로보기"><svg width="10" height="10" viewBox="0 0 10 10"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z"
-                                    fill="white" />
-                            </svg>
-                        </a>
-                    </figure>
-                    <div>
-                        <h3>VScode에 scss는</h3>
-                        <p>먼저 확장 프로그램에서 scss는 설치합니다. sass와 scss는 같지만 쓰는 방법이 살짝 틀립니다.</p>
-                    </div>
-                </div>
-                <div>
-                    <figure>
-                        <img src="../assets/img/card_bg04.jpg" alt="사진4">
-                        <a href="#" class="go" title="컨텐츠 바로보기"><svg width="10" height="10" viewBox="0 0 10 10"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M0.646447 8.64645C0.451184 8.84171 0.451184 9.15829 0.646447 9.35355C0.841709 9.54882 1.15829 9.54882 1.35355 9.35355L0.646447 8.64645ZM9.5 1C9.5 0.723858 9.27614 0.5 9 0.5L4.5 0.5C4.22386 0.5 4 0.723858 4 1C4 1.27614 4.22386 1.5 4.5 1.5L8.5 1.5L8.5 5.5C8.5 5.77614 8.72386 6 9 6C9.27614 6 9.5 5.77614 9.5 5.5L9.5 1ZM1.35355 9.35355L9.35355 1.35355L8.64645 0.646447L0.646447 8.64645L1.35355 9.35355Z"
-                                    fill="white" />
-                            </svg>
-                        </a>
-                    </figure>
-                    <div>
-                        <h3>VScode에 scss는</h3>
-                        <p>먼저 확장 프로그램에서 scss는 설치합니다. sass와 scss는 같지만 쓰는 방법이 살짝 틀립니다.</p>
-                    </div>
-                </div>
+               <?php }
+                ?>
             </div>
         </section>
         <!-- //card -->

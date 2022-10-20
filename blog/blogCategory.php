@@ -2,16 +2,16 @@
     include "../connect/connect.php";
     include "../connect/session.php";
 
-    $myBlogID = $_GET['blogID'];
+
+    $category = $_GET['category'];
     
 
-    $blogSql = "SELECT * FROM myblog WHERE myBlogID = {$myBlogID}";
-    $blogResult = $connect -> query($blogSql);
-    $blogInfo = $blogResult -> fetch_array(MYSQLI_ASSOC);
+    $categorySql = "SELECT * FROM myblog WHERE blogDelete = 0 AND blogCategory = '$category' ORDER BY myBlogID DESC LIMIT 10";
+    $categoryResult = $connect -> query($categorySql);
+    $categoryInfo = $categoryResult -> fetch_array(MYSQLI_ASSOC);
 
-    // $commentSql = "SELECT * FROM myComment";
-    // $commentResult = $connect -> query($commentSql);
-    // $commentInfo = $commentResult -> fetch_array(MYSQLI_ASSOC);
+    $categoryCount = $categoryResult -> num_rows;
+
 
 ?>
 
@@ -36,37 +36,32 @@
     <main id="main">
         <section id="blog" class="container">
             <div class="blog__inner">
-                <div class="blog__title" style="background-image:url(../assets/img/blog/<?=$blogInfo['blogImgFile']?>">
-                    <span class="blog__title__cate"><?=$blogInfo['blogCategory']?></span>
-                    <h2 class="blog__title__h1">
-                        <?=$blogInfo['blogTitle']?>
-                    </h2>
-                    <div class="blog__title__info">
-                        <div>
-                            <span class="author"><?=$blogInfo['blogAuthor']?></span>
-                            <span class="date"><?=date('Y-m-d', $blogInfo['blogRegTime'])?></span>                            
-                        </div>
-                        <div>
-                            <a href="" class="modify">수정</a>
-                            <a href="" class="delete">삭제</a>
-                        </div>
-                    </div>
+                <div class="blog__title">
+                    <h2><?=$categoryInfo['blogCategory']?> 블로그</h2>                   
+                    <p><?=$categoryInfo['blogCategory']?>와 관련된 글이 <?=$categoryCount?>개 있습니다.</p>                   
                 </div>
                 <div class="blog__contents">
-                    <div class="blog__contents__ad">
-                        <div></div>
+                    <div class="card__inner">
+                    <?php
+                        foreach($categoryResult as $blog){ ?>
+                            <div class="card">
+                                <figure>
+                                    <img src="../assets/img/blog/<?=$blog['blogImgFile']?>" alt="사진4">
+                                    <a href="blogView.php?blogID=<?=$blog['myBlogID']?>" class="go" title="컨텐츠 바로보기"></a>
+                                    <span class="cate"><?=$blog['blogCategory']?></span>
+                                </figure>
+                                <div>
+                                    <a href="blogView.php?blogID=<?=$blog['myBlogID']?>">
+                                        <h3><?=$blog['blogTitle']?></h3>
+                                        <p><?=$blog['blogContents']?></p>
+                                    </a>
+                                </div>
+                            </div>
+                    <?php }
+                        ?>
                     </div>
-                    <!-- blog__contents__ad -->
-
-                    <div class="blog__contents__cont">
-                        <?=$blogInfo['blogContents']?>
-                    </div>
-                    <!-- blog__contents__cont -->
-                    <div class="blog__contents__comment">
-
-                    </div>
-                    <!-- blog__contents__comment -->
                 </div>
+                
                 <!-- blog__contents -->
                 <div class="blog__aside">
                     <div class="blog__aside__intro">

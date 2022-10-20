@@ -12,7 +12,7 @@
     $regTime = time();
     $myMemberID = $_SESSION['myMemberID'];
 
-    $sql = "INSERT INTO myBoard (myMemberID, boardTitle, boardContents, boardView, regTime) VALUES('$myMemberID', '$boardTitle', '$boardContents', '$boardView', '$regTime')";
+    $sql = "INSERT INTO myboard(myMemberID, boardTitle, boardContents, boardView, regTime) VALUES('$myMemberID', '$boardTitle', '$boardContents', '$boardView', '$regTime')";
     $connect -> query($sql);
 
 ?>

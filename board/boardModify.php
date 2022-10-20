@@ -53,8 +53,8 @@
 
         echo "<div style='display:none'><label for='myBoardID'>번호</label><input type='text' name='myBoardID' id='myBoardID' value ='".$info['myBoardID']."'></div>";
         echo "<div><label for='boardTitle'>제목</label><input type='text' name='boardTitle' id='boardTitle' value ='".$info['boardTitle']."'></div>";
-        // echo "<div><label for='boardContents'>내용</label><textarea type='text' name='boardContents' id='boardContents' rows='20'>".$info['boardContents']."</textarea></div>";
-        // echo "<div><label for='youPass'>비밀번호</label> <input type='password' name='youPass' id='youPass' placeholder='로그인 비밀번호를 입력해주세요!'autocomplete='off' required></input></div>";
+        echo "<div><label for='boardContents'>내용</label><textarea type='text' name='boardContents' id='boardContents' rows='20'>".$info['boardContents']."</textarea></div>";
+        echo "<div><label for='youPass'>비밀번호</label> <input type='password' name='youPass' id='youPass' placeholder='로그인 비밀번호를 입력해주세요!'autocomplete='off' required></input></div>";
     }
 ?>
 
