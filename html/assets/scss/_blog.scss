@@ -311,7 +311,117 @@
         }
     }
 }
-.blog__aside__comment {}
+.blog__contents__comment {
+    margin-top: 100px;
+    border-top: 2px solid #000; 
+
+    h3 {
+        display: inline-block;
+        background: #000;
+        color: #fff;
+        margin-bottom: 50px;
+        padding: 1px 10px;
+    }
+}
+.comment {
+    margin-bottom: 80px;
+}
+.comment__view {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.comment__view__img {
+    width: 10%;
+
+    img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+    }
+}
+.comment__view__date {
+    width: 20%;
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+    font-weight: 300;
+
+    .name {
+        display: block;
+    }
+    .data {
+        display: block;
+    }
+}
+.comment__view__msg {
+    width: 68%;
+    border-bottom: 1px solid #000;
+    line-height: 1.4;
+    padding-bottom: 5px;
+}
+.comment__del {
+    text-align: right;
+    margin-top: -5px;
+    line-height: 1.4;
+
+    a {
+
+        &:hover {
+            text-decoration: underline;
+            text-underline-position: under;
+        }
+    }
+}
+.comment__del__del {}
+.comment__del__mod {}
+
+.comment__write {
+    padding: 20px;
+    background: #d4d4d4;
+
+    label {
+        @include blind;
+    }
+    input {
+        border: 0;
+        padding: 15px 20px;
+        border-radius: 50px;
+    }
+    button {
+        border: 0;
+        background: #000;
+        color: #fff;
+        border-radius: 30px;
+        cursor: pointer;
+    }
+}
+.comment__write__info {
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    > * {
+        width: 32%;
+        box-sizing: border-box;
+    }
+}
+.comment__write__msg {
+    input {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 15px;
+    }
+}
+
+
+.blog__aside {
+    width: 30%;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
 .blog__aside__ad {}
 .blog__relation {
     width: 100%;
