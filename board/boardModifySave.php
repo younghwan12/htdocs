@@ -15,25 +15,25 @@
 <body>
     
 <?php
-    $myBoardID = $_POST['myBoardID'];
+    $BoardID = $_POST['BoardID'];
     $boardTitle = $_POST['boardTitle'];
     $boardContents = $_POST['boardContents'];
     $youPass = $_POST['youPass'];
-    $myMemberID = $_SESSION['myMemberID'];
+    $MemberID = $_SESSION['MemberID'];
 
-    echo $myBoardID;
+    echo $BoardID;
     
 
     $boardTitle = $connect -> real_escape_string($boardTitle);
     $boardContents = $connect -> real_escape_string($boardContents);
 
-    $sql = "SELECT youPass, myMemberID FROM myMember WHERE myMemberID = {$myMemberID}";
+    $sql = "SELECT youPass, MemberID FROM myMember WHERE MemberID = {$MemberID}";
     $result = $connect -> query($sql);
 
     $memberInfo = $result -> fetch_array(MYSQLI_ASSOC);
 
-    if($memberInfo['youPass'] === $youPass && $memberInfo['myMemberID'] === $myMemberID){
-        $sql = "UPDATE myBoard SET boardTitle = '{$boardTitle}', boardContents = '{$boardContents}' WHERE myBoardID = '{$myBoardID}'";
+    if($memberInfo['youPass'] === $youPass && $memberInfo['MemberID'] === $MemberID){
+        $sql = "UPDATE myBoard SET boardTitle = '{$boardTitle}', boardContents = '{$boardContents}' WHERE BoardID = '{$BoardID}'";
         $connect -> query($sql);
     } else {
         echo "<script>alert('비밀번호가 일치하지 않습니다. 다시 한번 확인해주세요!!')</script>";

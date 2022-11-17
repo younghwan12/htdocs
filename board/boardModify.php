@@ -15,7 +15,7 @@
     <title>게시판 수정하기</title>
 
      <!-- link -->
-     <?php include "../include/link.php"?>
+     <?php include "../include/head.php"?>
 
 
     <!-- header -->
@@ -33,7 +33,7 @@
 
     <main id="main">
         <section id="board" class="container">
-            <h2>게시판 보기 영역입니다.</h2>
+            <!-- <h2>게시판 보기 영역입니다.</h2> -->
             <div class="board__inner">
                 <div class="board__title">
                     <h3>게시판 수정하기</h3>
@@ -43,9 +43,9 @@
                     <form action="boardModifySave.php" name="boardModify" method="post">
                         <fieldset>
 <?php
-    $myBoardID = $_GET['myBoardID'];
+    $BoardID = $_GET['BoardID'];
 
-    $sql = "SELECT myBoardID, boardTitle, boardContents FROM myBoard WHERE myBoardID = {$myBoardID}";
+    $sql = "SELECT BoardID, boardTitle, boardContents FROM myBoard WHERE BoardID = {$BoardID}";
     $result = $connect -> query($sql);
 
     if($result){

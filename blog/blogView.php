@@ -2,14 +2,14 @@
     include "../connect/connect.php";
     include "../connect/session.php";
 
-    $myBlogID = $_GET['blogID'];
+    $blogID = $_GET['blogID'];
     
 
-    $blogSql = "SELECT * FROM myblog WHERE myBlogID = {$myBlogID}";
+    $blogSql = "SELECT * FROM myBlog WHERE blogID = {$blogID}";
     $blogResult = $connect -> query($blogSql);
     $blogInfo = $blogResult -> fetch_array(MYSQLI_ASSOC);
 
-    $commentSql = "SELECT * FROM myComment WHERE myBlogID = {$myBlogID} ORDER BY myCommentID DESC";
+    $commentSql = "SELECT * FROM mycomment WHERE BlogID = {$blogID} ORDER BY commentID DESC";
     $commentResult = $connect -> query($commentSql);
     $commentInfo = $commentResult -> fetch_array(MYSQLI_ASSOC);
 
@@ -22,7 +22,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP 사이트 만들기</title>
-    <?php include "../include/link.php" ?>
+    <?php include "../include/head.php" ?>
 </head>
 <body>
     <div id="skip">
@@ -36,7 +36,7 @@
     <main id="main">
         <section id="blog" class="container">
             <div class="blog__inner">
-                <div class="blog__title" style="background-image:url(../assets/img/blog/<?=$blogInfo['blogImgFile']?>">
+                <div class="blog__title" style="background-image:url(../assets/blog/<?=$blogInfo['blogImgSrc']?>">
                     <span class="blog__title__cate"><?=$blogInfo['blogCategory']?></span>
                     <h2 class="blog__title__h1">
                         <?=$blogInfo['blogTitle']?>
@@ -66,7 +66,7 @@
                         <h3>댓글 쓰기</h3>
                         <?php
                             foreach($commentResult as $comment){ ?>
-                                <div class="comment" id="Comment<?=$comment['myCommentID']?>">
+                                <div class="comment" id="Comment<?=$comment['commentID']?>">
                                     <div class="comment__view">
                                         <div class="comment__view__img">
                                             <img src="../assets/img/icon_256.png" alt="dd">
@@ -291,7 +291,7 @@
                     method: "POST",
                     dataType : "json",
                     data: {
-                        "blogID": <?=$myBlogID?>,
+                        "blogID": <?=$blogID?>,
                         "name": commentName.val(),
                         "pass": commentPass.val(),
                         "msg": commentWrite.val()

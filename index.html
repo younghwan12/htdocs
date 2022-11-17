@@ -1,53 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h2>html</h2>
-    메인 페이지 : <a href="html/main.html">main.html</a><br>
-    회원가입 동의 페이지 : <a href="html/joinAgree.html">html/joinAgree.html</a><br>
-    회원가입 페이지 : <a href="html/join.html">html/join.html</a><br>
-    회원가입 완료 페이지 : <a href="html/joinResult.html">html/joinResult.html</a><br>
-    게시판 페이지 : <a href="html/board.html">html/board.html</a><br>
-    게시판 수정 페이지 : <a href="html/boardModify.html">html/boardModify.html</a><br>
-    게시판 보기 페이지 : <a href="html/boardView.html">html/boardView.html</a><br>
-    게시판 쓰기 페이지 : <a href="html/boardWrite.html">html/boardWrite.html</a><br>
-    게시판 서치 페이지 : <a href="html/boardSearch.html">html/boardSearch.html</a><br>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        a:hover {
+            text-decoration: underline;
+            text-underline-position: under;
+        }
+        li {
+            list-style: none;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        .box {
+            padding: 5%;
+            min-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .box h1 {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .box > div {
+            width: 50%;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+        <h1>PHP 프로젝트</h1>
+        <div>
+            <h2>HTML</h2>
+            <ul>
+                <li><a href="html/main.html">메인페이지</a></li>
+                <li><a href="html/join.html">회원가입</a></li>
+                <li><a href="html/join2.html">회원가입2</a></li>
+                <li><a href="html/join2.html">회원가입 정보 페이지</a></li>
+                <li><a href="html/joinInfo.html">회원가입 동의 페이지</a></li>
+                <li><a href="html/joinResult.html">회원가입 결과 페이지</a></li>
+                <br>
+                <li><a href="html/login.html">로그인</a></li>
+                <br>
+                <li><a href="html/board.html">게시판 페이지</a></li>
+                <li><a href="html/boardModify.html">게시판 수정 페이지</a></li>
+                <li><a href="html/boardSearch.html">게시판 결과 페이지</a></li>
+                <li><a href="html/boardView.html">게시판 보기 페이지</a></li>
+                <li><a href="html/boardWrite.html">게시판 쓰기 페이지</a></li>
+                <br>
+                <li><a href="html/blog.html">블로그 페이지</a></li>
+                <li><a href="html/blogCate.html">블로그 카테고리 페이지</a></li>
+                <li><a href="html/blogModify.html">블로그 수정 페이지</a></li>
+                <li><a href="html/blogModify.html">블로그 뷰 페이지</a></li>
+                <li><a href="html/blogWrite.html">블로그 쓰기 페이지</a></li>
+                <br><br><br>
+                <li><a href="html/blogWrite.html">블로그 댓글 페이지</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2>PHP</h2>
+            <ul>
+                <li><a href="main/main.php" target="_blank">메인 페이지</a></li>
+                <li><a href="http://leesh3432.dothome.co.kr/myadmin" target="_blank">myadmin</a></li>
+                <br />
+                <li><a href="create/createBoard.php" target="_blank">게시판 테이블 만들기</a></li>
+                <li><a href="create/createBlog.php" target="_blank">블로그 테이블 만들기</a></li>
+                <li><a href="create/createMember.php"target="_blank">회원 테이블 만들기</a></li>
+                <li><a href="create/createComment.php" target="_blank">댓글 테이블 만들기</a></li>
+                <br />
+                <li><a href="join/join.php" target="_blank">회원가입 페이지</a></li>
+                <br />
+                <li><a href="login/login.php" target="_blank">로그인 페이지</a></li>
 
-    <br>
-    
-    <br>
-    myAdmin 페이지 : <a href="http://localhost/phpMyAdmin/">http://localhost/phpMyAdmin/</a><br>
-    DB 접속 페이지 : <a href="connect/connect.php">connect.php</a><br>
-    메인 페이지 : <a href="main/main.php">main.php</a><br>
-
-    <br>
-    <h2>게시판</h2>
-    게시판 페이지 : <a href="board/board.php">board/board.php</a><br>
-    게시판 보기 페이지 : <a href="board/boardView.php">boardView.php</a><br>
-    게시판 쓰기 페이지 : <a href="board/boardWrite.php">boardWrite.php</a><br>
-    게시판 수정 페이지 : <a href="board/boardModify.php">boardModify.php</a><br>
-
-    <br>
-    <h2>테이블 만들기</h2>
-    myMember 테이블 만들기 페이지 <a href="create/createMember.php">createMember.php</a><br>
-    myBoardID 테이블 만들기 페이지 <a href="create/createBoard.php">createBoard.php</a><br>
-    myBoardID 테이블 데이터 만들기 <a href="create/createBoardData.php">createBoardData.php</a><br>
-    myAdminMember 테이블 만들기 <a href="create/createAdminMember.php">createAdminMember.php</a><br>
-    myBlog 테이블 만들기 <a href="create/createBlog.php">createBlog.php</a><br>
-    myComment 테이블 만들기 <a href="create/createComment.php">createComment.php</a><br>
-
-
-    <h3>블로그</h3>
-    블로그  <a href="blog/blog.php">blog.php</a><br>
-    블로그 글쓰기 <a href="blog/blogWrite.php">blogWrite.php</a><br>
-
-    <br>
-    <h3>관리자 페이지</h3>
-    게시판 회원가입 페이지 : <a href="admin/adminjoin.php">admin/adminjoin.php</a><br>
-</body>
+            </ul>
+        </div>
+    </div>
+  </body>
 </html>
